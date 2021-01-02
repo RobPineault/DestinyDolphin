@@ -1,0 +1,577 @@
+{
+  "sockets": {
+    "data": {
+      "6917529207042862893": {
+        "sockets": [
+          {
+            "plugHash": 1636108362,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 839105230,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1431678320,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 4267945040,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 4082225868,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1005594231,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 2323986101,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 150943605,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 2285418970,
+            "isEnabled": true,
+            "isVisible": false
+          },
+          {
+            "plugHash": 2931483505,
+            "isEnabled": true,
+            "isVisible": true
+          }
+        ]
+      },
+      "6917529197334771570": {
+        "sockets": [
+          {
+            "plugHash": 3610814281,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1392496348,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1431678320,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 2620589274,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 3465198467,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "isEnabled": false,
+            "isVisible": false
+          },
+          {
+            "plugHash": 1959648454,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 545660112,
+            "isEnabled": true,
+            "isVisible": true
+          }
+        ]
+      },
+      "6917529200481012253": {
+        "sockets": [
+          {
+            "plugHash": 263649945,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1261178282,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 2349202967,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 2030760728,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 3913600130,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 4248210736,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 2323986101,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1486919759,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 2931483505,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 2285418970,
+            "isEnabled": true,
+            "isVisible": false
+          }
+        ]
+      },
+      "6917529200866145521": {
+        "sockets": [
+          {
+            "plugHash": 481675395,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 807186981,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 807186981,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 4153634494,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 4248210736,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 4048086883,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 3581342943,
+            "isEnabled": true,
+            "isVisible": false
+          },
+          {
+            "plugHash": 1997804225,
+            "isEnabled": true,
+            "isVisible": false
+          },
+          {
+            "plugHash": 2664898188,
+            "isEnabled": true,
+            "isVisible": false
+          },
+          {
+            "plugHash": 970151529,
+            "isEnabled": true,
+            "isVisible": false
+          },
+          {
+            "plugHash": 702981643,
+            "isEnabled": true,
+            "isVisible": true
+          }
+        ]
+      },
+      "6917529196368402224": {
+        "sockets": [
+          {
+            "plugHash": 481675395,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1844045567,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1844045567,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1147638875,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 2926662841,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 3482456151,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1798836563,
+            "isEnabled": true,
+            "isVisible": false
+          },
+          {
+            "plugHash": 3159833103,
+            "isEnabled": true,
+            "isVisible": false
+          },
+          {
+            "plugHash": 2867247961,
+            "isEnabled": true,
+            "isVisible": false
+          },
+          {
+            "plugHash": 2084652226,
+            "isEnabled": true,
+            "isVisible": false
+          },
+          {
+            "plugHash": 702981643,
+            "isEnabled": true,
+            "isVisible": true
+          }
+        ]
+      },
+      "6917529200860402445": {
+        "sockets": [
+          {
+            "plugHash": 481675395,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1659393211,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1659393211,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 4153634494,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 4248210736,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 3003114974,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 2229578547,
+            "isEnabled": true,
+            "isVisible": false
+          },
+          {
+            "plugHash": 2600679334,
+            "isEnabled": true,
+            "isVisible": false
+          },
+          {
+            "plugHash": 792638842,
+            "isEnabled": true,
+            "isVisible": false
+          },
+          {
+            "plugHash": 4073867034,
+            "isEnabled": true,
+            "isVisible": false
+          },
+          {
+            "plugHash": 702981643,
+            "isEnabled": true,
+            "isVisible": true
+          }
+        ]
+      },
+      "6917529206159794067": {
+        "sockets": [
+          {
+            "plugHash": 481675395,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 573150099,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 573150099,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 4153634494,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 4248210736,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 3020065863,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1798836563,
+            "isEnabled": true,
+            "isVisible": false
+          },
+          {
+            "plugHash": 1087657324,
+            "isEnabled": true,
+            "isVisible": false
+          },
+          {
+            "plugHash": 3804506889,
+            "isEnabled": true,
+            "isVisible": false
+          },
+          {
+            "plugHash": 795935713,
+            "isEnabled": true,
+            "isVisible": false
+          },
+          {
+            "plugHash": 702981643,
+            "isEnabled": true,
+            "isVisible": true
+          }
+        ]
+      },
+      "6917529200866142480": {
+        "sockets": [
+          {
+            "plugHash": 481675395,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1137289077,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1137289077,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 4153634494,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 4248210736,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 3020065862,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "isEnabled": false,
+            "isVisible": false
+          },
+          {
+            "isEnabled": false,
+            "isVisible": false
+          },
+          {
+            "isEnabled": false,
+            "isVisible": false
+          },
+          {
+            "isEnabled": false,
+            "isVisible": false
+          },
+          {
+            "plugHash": 702981643,
+            "isEnabled": true,
+            "isVisible": true
+          }
+        ]
+      },
+      "6917529206688798654": {
+        "sockets": [
+          {
+            "plugHash": 4248210736,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 2426387438,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1255489387,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 2010132761,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1048118643,
+            "isEnabled": false,
+            "isVisible": true,
+            "enableFailIndexes": [
+              0
+            ]
+          }
+        ]
+      },
+      "6917529207037109936": {
+        "sockets": [
+          {
+            "plugHash": 2657932156,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 2978337238,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 3052096176,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 2323170449,
+            "isEnabled": true,
+            "isVisible": true
+          }
+        ]
+      },
+      "6917529207048371775": {
+        "sockets": [
+          {
+            "plugHash": 3205869475,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 1390587439,
+            "isEnabled": true,
+            "isVisible": true
+          }
+        ]
+      },
+      "6917529194593967088": {
+        "sockets": [
+          {
+            "plugHash": 575272392,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 3803357562,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 2837411633,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 396733161,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 2293597301,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 2093762600,
+            "isEnabled": true,
+            "isVisible": true
+          }
+        ]
+      },
+      "6917529080827666549": {
+        "sockets": [
+          {
+            "plugHash": 1280540149,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 383973261,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 3201469151,
+            "isEnabled": true,
+            "isVisible": true
+          },
+          {
+            "plugHash": 4049365947,
+            "isEnabled": true,
+            "isVisible": true
+          }
+        ]
+      }
+    },
+    "privacy": 2
+  }
+}

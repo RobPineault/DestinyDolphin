@@ -1,0 +1,67 @@
+{
+  "characterPlugSets": {
+    "data": {
+      "2305843009405057135": {
+        "plugs": {
+          "2844132982": [
+            {
+              "plugItemHash": 550475664,
+              "canInsert": true,
+              "enabled": true
+            },
+            {
+              "plugItemHash": 1397877686,
+              "canInsert": true,
+              "enabled": true
+            },
+            {
+              "plugItemHash": 1397877684,
+              "canInsert": true,
+              "enabled": true
+            }
+          ],
+          "1540648609": [
+            {
+              "plugItemHash": 1859929470,
+              "canInsert": true,
+              "enabled": true
+            },
+            {
+              "plugItemHash": 1397877685,
+              "canInsert": true,
+              "enabled": true
+            },
+            {
+              "plugItemHash": 1279446438,
+              "canInsert": true,
+              "enabled": true
+            }
+          ],
+          "451325587": [
+            {
+              "plugItemHash": 2950379997,
+              "canInsert": true,
+              "enabled": true
+            },
+            {
+              "plugItemHash": 2950379999,
+              "canInsert": true,
+              "enabled": true
+            },
+            {
+              "plugItemHash": 4140815674,
+              "canInsert": true,
+              "enabled": true
+            },
+            {
+              "plugItemHash": 2561450986,
+              "canInsert": true,
+              "enabled": true
+            }
+          ]
+        }
+      }
+    },
+    "privacy": 1
+  }
+}
