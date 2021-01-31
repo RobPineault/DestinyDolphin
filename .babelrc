@@ -7,6 +7,9 @@
         "preset-react": {
           runtime: "automatic",
         },
+        "transform-runtime": {
+          "useESModules": false
+        }
       },
     ],
   ],

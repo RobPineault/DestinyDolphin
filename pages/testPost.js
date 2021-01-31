@@ -1,6 +1,7 @@
 import useSWR from 'swr'
 import { useUser } from '../context/userContext'
-import { attributes, react as HomeContent } from '../content/sweet-pandas-eating-sweets.md';
+//import { attributes, react as HomeContent } from '../content/sweet-pandas-eating-sweets.md';
+
 import Layout from '../components/Layout'
 const fetcher = (url, token) =>
     fetch(url, {
@@ -16,20 +17,23 @@ const Profile = () => {
         user ? ['/api/hello', user.token] : null,
         fetcher
     );
-        let { title, description, tags } = attributes;
+       // let { title, description, tags } = attributes;
     return (
-        <Layout title={title} description={description}>
-                <h1>{title}</h1>
-            <p>{description}</p>
-            <HomeContent />
-                <div>
-                {tags.map(tag => {
-                    return (<h6 key={ tag}>{ tag }</h6>)
-                })}
-                </div>
+        <Layout title={"post"} description={"a post"}>
+                
             </Layout>
         )
  
 }
 
 export default Profile
+/*<HomeContent />
+ * <h1>{title}</h1>
+            <p>{description}</p>
+
+                <div>
+                {tags.map(tag => {
+                    return (<h6 key={ tag}>{ tag }</h6>)
+                })}
+                </div>
+ */
