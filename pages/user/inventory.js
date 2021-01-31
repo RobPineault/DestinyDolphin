@@ -4,8 +4,8 @@ import Item from '../../components/Item'
 import { Tabs, Tab, Button, Typography } from '@material-ui/core'
 import { useUser } from '../../context/userContext'
 import { useEffect, useState } from 'react';
-import { getDefinitions } from '../../lib/destiny/bungieAPI/definitions'
-import { getItems } from '../../lib/destiny/itemUtils'
+import { getDefinitions } from '../../lib/destiny/bungieAPI/storage'
+import { getItems } from '../../lib/destiny/user/itemUtils'
 import { remove, slice } from 'lodash'
 import axios from 'axios'
 const pageSize = 20;
@@ -38,6 +38,7 @@ function a11yProps(index) {
 
 export default function inventory() {
     const { user } = useUser();
+    console.log(user);
     const [activeButtons, setActiveButtons] = useState({ bucket: [], slot: [], ammo: [] });
     const [allItems, setAllItems] = useState();    
     const [currentItems, setCurrentItems] = useState(null);
@@ -49,7 +50,7 @@ export default function inventory() {
     const handleChange = (event, newValue) => {
         setActiveTab(newValue);
     };
-
+    /*
     useEffect(() => {
         //if (user) {
             //const getInv = getInventory(user.membership)
@@ -71,7 +72,7 @@ export default function inventory() {
             }).catch(e => console.log("get inventory failed", e));
         //}
     }, [user]);
-
+    */
     function search(e) {
         setCurrentItems(filterItems(baseItems, e.target.value.toLowerCase(), activeButtons));
         setSearchValue(e.target.value);

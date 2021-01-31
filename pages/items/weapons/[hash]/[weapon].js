@@ -1,29 +1,44 @@
-import { useRouter } from 'next/router'
-import ErrorPage from 'next/error'
-import Layout from '../../../components/Layout'
-import { getData, getItemByHash } from '../../../lib/utils/api'
+//import { useRouter } from 'next/router'
+//import ErrorPage from 'next/error'
+import Layout from '../../../../components/Layout'
+import { fetchItemData } from '../../../../lib/destiny/bungieAPI/staticRequests'
+import { loadItem } from '../../../../lib/destiny/bungieAPI/storage'
 import { Grid, Card, CardContent, Typography } from '@material-ui/core'
+import { useEffect, useState } from 'react'
 
-export default function weapon({ weapon }) {
-    const router = useRouter()
+
+export default function weapon({ hash }) {
+    //const router = useRouter()
+    //const { hash } = router.query
+    const [weapon, setWeapon] = useState()
+    const path = 'https://www.bungie.net/'
+    useEffect(() => {
+        loadItem(hash).then(weapon => {
+            console.log(weapon)
+            setWeapon(weapon)
+        })    
+    }, [])
+
+    /*
     if (!router.isFallback && !weapon?.hash) {
         return <ErrorPage statusCode={404} />
-    }
+    }*/
+    
     return (
         <Layout>
-            {router.isFallback ? (
-                <p>Loading…</p>
+            {!weapon ? (
+                <p>Loading...</p>
             ) : (
                     <>
                         <Grid container component={Card}>
                             <Grid container item xs={8}>
                                 <Grid item xs={4}>
-                                    <img src={weapon.img} />
+                                    <img src={path + weapon.displayProperties.icon} />
                                 </Grid>
                                 <Grid item xs={8}>
                                     <CardContent>
                                         <Typography variant="h2" color="textPrimary">
-                                            { weapon.name}
+                                            {weapon.displayProperties.name}
                                         </Typography>
                                         <Typography variant="body2" color="textSecondary" component="p">
                                             Slot | Type | Energy? | Frame
@@ -35,7 +50,7 @@ export default function weapon({ weapon }) {
                                 </Grid>
                                 <Grid item xs={12}>
                                     <Typography variant="body2" color="textSecondary" component="p">
-                                        Description
+                                        {weapon.displayProperties.description}
                                     </Typography>
                                 </Grid>
                             </Grid>
@@ -60,19 +75,19 @@ export default function weapon({ weapon }) {
                         <div className="space" />
                         <Grid container component={Card}>
                             <Grid container item xs={6}>
-                                <Grid direction="column" item xs="auto">
+                                <Grid item xs="auto">
                                     <div className="circle" />
                                     <div className="circle" />
                                     <div className="circle" />
                                     <div className="circle" />
                                 </Grid>
-                                <Grid direction="column" item xs="auto">
+                                <Grid item xs="auto">
                                     <div className="circle" />
                                     <div className="circle" />
                                     <div className="circle" />
                                     <div className="circle" />
                                 </Grid>
-                                <Grid direction="column" item xs="auto">
+                                <Grid item xs="auto">
                                     <div className="circle" />
                                     <div className="circle" />
                                     <div className="circle" />
@@ -116,25 +131,24 @@ export default function weapon({ weapon }) {
     )
 }
 
-export async function getStaticProps({ params }) {
-    const weapon = getItemByHash(params.weapon, 'weapons')
-    if (weapon) {
+export async function getStaticProps({ params }) {    
         return {
             props: {
-                weapon: weapon
+                hash: params.hash
             }
         }
-    }
 }
 
 export async function getStaticPaths() {
     // Get the paths we want to pre-render based on users
-    const weaponData = getData('weapons');
+    //request manifest links
+    const weapons = await fetchItemData("weapon")
     return {
-        paths: weaponData.map((weapon) => {
+        paths: weapons.map((weapon) => {
             return {
                 params: {
-                    weapon: weapon.hash.toString(),
+                    hash: weapon.hash,
+                    weapon: weapon.name,
                 },
             }
         }),

@@ -24,7 +24,7 @@ export default function ResetTimer() {
                 const days = timeDistance(now.getDay(), 2, 7);
                 const hours = timeDistance(now.getHours(), 13, 24);
                 const minutes = timeDistance(now.getMinutes(), 0, 60);
-                const seconds = timeDistance(now.getSeconds(), 0, 60);
+                let seconds = timeDistance(now.getSeconds(), 0, 60);
                 if (seconds < 10) {
                     seconds = "0" + seconds;
                 }

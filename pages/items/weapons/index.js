@@ -1,16 +1,13 @@
-
 import Layout from '../../../components/Layout'
-import ItemFilter from '../../../components/ItemFilter'
+import WeaponDB from '../../../components/items/WeaponDB'
 
-import { useEffect } from 'react'
-export default function Home() {
-    useEffect(() => {
 
-    }, [])
+
+export default function WeaponsPage() {
 
     return (
         <Layout title={`Home | Destiny Dolphin`} description={`test description`}>
-                <ItemFilter type="weapon" />
+            <WeaponDB />
         </Layout>
     )
 }

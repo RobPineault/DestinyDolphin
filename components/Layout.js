@@ -1,4 +1,3 @@
-import React from "react"
 //import styles from '../styles/Home.module.css'
 import Header from './Header'
 import Body from './Body'
@@ -9,6 +8,7 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Fab from '@material-ui/core/Fab';
 
 export default function Layout({ title, description = undefined, children }) { 
+
 
     return (        
         <PageContainer  title={title} description={description}>

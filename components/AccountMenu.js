@@ -1,19 +1,30 @@
-import { useState, useRef, useEffect} from 'react'
+import { useState, useRef, useEffect } from 'react'
+import Router from 'next/router'
 import { Button, IconButton, ClickAwayListener, Paper, Grow, Popper, MenuItem, MenuList } from '@material-ui/core';
+import { useRouter } from 'next/router'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import firebase from '../lib/auth/initFirebase'
 import { useUser } from '../context/userContext'
+import { initUser } from '../redux/ducks/user/userSlice'
+import { useSelector, useDispatch } from 'react-redux'
+
 export default function AccountMenu() {
     const [open, setOpen] = useState(false);
     const anchorRef = useRef(null);
-    const { loadingUser, user } = useUser();
+    const { loadingUser, user } = useUser();    
+    const router = useRouter()
+    
+    const { signedIn, testToken } = useSelector((state) => state.user)
+    const dispatch = useDispatch()
+    useEffect(() => {        
+        if (signedIn) {
+            dispatch(initUser(testToken))
+        }        
+    }, []);
 
     const handleToggle = () => {
         setOpen((prevOpen) => !prevOpen);
     };
-    useEffect(() => {
-    }, [loadingUser]);
-
     const handleClose = (event) => {
         if (anchorRef.current && anchorRef.current.contains(event.target)) {
             return;
@@ -21,6 +32,9 @@ export default function AccountMenu() {
         setOpen(false);
     };
     const handleSignIn = () => {
+        Router.push('/api/bungieAuth?origin=' + router.pathname, '/login')
+
+        /*
         var win = window.open('/api/bungieAuth');
         var timer = setInterval(function () {
             if (win.closed) {
@@ -35,6 +49,7 @@ export default function AccountMenu() {
                 }
             }
         }, 1000);
+        */
     };
     // return focus to the button when we transitioned from !open -> open
     const prevOpen = useRef(open);

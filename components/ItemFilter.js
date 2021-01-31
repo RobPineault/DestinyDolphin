@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { filterItems, getBaseItems } from '../lib/destiny/itemFilter'
 import { Button, ButtonGroup, Grid, TextField, Paper, Typography } from '@material-ui/core';
-import { getDefinitions } from '../lib/destiny/bungieAPI/definitions'
+import { getDefinition } from '../lib/destiny/bungieAPI/storage'
 import ItemTable from './ItemTable'
 import styles from '../styles/Destiny.module.css'
 import { remove, slice } from 'lodash'
@@ -16,9 +16,9 @@ export default function Filter({ type }) {
     const [currentItems, setCurrentItems] = useState(null);
 
     useEffect(() => {
-        getDefinitions().then(definitions => {
-            if (definitions) {
-                let BI = getBaseItems(definitions.InventoryItem, type);
+        getDefinition('InventoryItem').then(InventoryItem => {
+            if (InventoryItem) {
+                let BI = getBaseItems(InventoryItem, type);
                 setBaseItems(BI);
                 setCurrentItems(BI);
             }

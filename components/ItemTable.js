@@ -1,12 +1,6 @@
 import styles from '../styles/Destiny.module.css'
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-//import Paper from '@material-ui/core/Paper';
-import Card from '@material-ui/core/Card';
+import { TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
+
 
 const path = 'https://www.bungie.net'
 const damageTypes = {
@@ -15,10 +9,9 @@ const damageTypes = {
     3: 'Solar',
     4: 'Void',
 }
-export default function Layout({ items }) {
+export default function ItemTable({ items, itemType }) {
     return (
-        <TableContainer component={Card}>
-            <Table className="item-table" aria-label="simple table" padding="default">
+        <>
                 <TableHead>
                     <TableRow>
                         <TableCell></TableCell>
@@ -29,9 +22,9 @@ export default function Layout({ items }) {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {items.map((row) => {
+                    {items ? items.map((row) => {
                         const s = damageTypes[row.defaultDamageType];
-                        const link = '/items/weapons/' + row.hash;
+                        const link = '/items/'+ itemType +'/' + row.hash + '/' + row.displayProperties.name.replace(/\s/g, '');
                         return (
                         <TableRow key={row.index}>
                                 <TableCell component="th" scope="row" padding="none">
@@ -44,10 +37,11 @@ export default function Layout({ items }) {
                             <TableCell align="right">{row.itemTypeDisplayName}</TableCell>
                             <TableCell align="right">{row.inventory.tierTypeName}</TableCell>
                         </TableRow>
-                    )})}
-                </TableBody>
-            </Table>
-        </TableContainer>
+                        )
+                    }) : (<p>Loading</p>)
+                    }
+            </TableBody>
+            </>
     );
 }
 

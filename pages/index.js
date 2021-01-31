@@ -5,16 +5,20 @@ import Xur from '../components/Xur'
 import Weekly from '../components/Weekly'
 //import { getMembership } from '../lib/destiny/bungieAPI/user/initUser'
 import { useEffect } from 'react'
-import { Grid } from '@material-ui/core'
+import { Grid, Button } from '@material-ui/core'
 //import  BlogTextInfoContentStyle  from '../components/mui/BlogTextInfoContentStyle'
+import ToggleSidebar from '../redux/ducks/sidebar/ToggleSidebar'
+import { useSelector, useDispatch } from 'react-redux'
 
 
 export default function Home() {
+
+    //const dispatch = useDispatch()
+    //const { totalClicks } = useSelector((state) => state.user)
     useEffect(() => {
-
-
+        //localStorage.setItem('bungieToken', JSON.stringify({ token: "test Token" }))
     }, [])
-
+    
     return (
         <Layout title={`Home | Destiny Dolphin`} description={`test description`} >
             <Grid spacing={2} container >
@@ -35,8 +39,7 @@ export default function Home() {
                     </Grid>
                 </Grid>
                 <Grid spacing={2} container item xs={6}>
-                    <Grid item xs={6}>
-                        <Xur />
+                    <Grid item xs={6}>                        
                     </Grid>
                     <Grid item xs={6}>
                         <Xur />
@@ -44,8 +47,7 @@ export default function Home() {
                     </Grid>
                     <Grid spacing={2} container item xs={12} className="article-container">
                         <Grid item xs={12}>
-                            
-                            <FeatureArticle title="best" />
+                            <ToggleSidebar />
                         </Grid>
                         <Grid item xs={12}>
                             <FeatureArticle title="destiny" />

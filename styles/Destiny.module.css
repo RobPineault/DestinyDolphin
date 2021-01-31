@@ -1,0 +1,29 @@
+.item {
+    display: flex;
+    width: 350px;
+    height: 120px;
+    margin: 5px;
+    overflow: visible !important;
+}
+.itemIcon {
+    width: 72px;
+    margin: 5px 5px -1px 5px;
+    border: 1px solid #0e0c0c;
+    background-color: brown;
+}
+.itemCardIcon {
+    width: 90px !important;
+    height: 90px;
+    margin: 5px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+    background-color: brown;
+}
+.itemContent {
+    flex: 1 0 auto;
+}
+.itemContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+

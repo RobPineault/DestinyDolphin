@@ -1,3 +1,4 @@
+import React from 'react';
 import { Card, Tooltip } from '@material-ui/core';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
