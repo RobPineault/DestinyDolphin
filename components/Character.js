@@ -2,13 +2,13 @@ import clsx from 'clsx';
 import { Typography, makeStyles } from "@material-ui/core"
 import Skeleton from '@material-ui/lab/Skeleton';
 import { destinyClass, destinyRace } from '../lib/destiny/constants'
+
 function getKeyByValue(object, value) {
     return Object.keys(object).find(key => object[key] === value);
 }
 const path = 'https://www.bungie.net'
 const useStyles = makeStyles((theme) => ({
     emblemBackground: {
-        backgroundImage: "url(" + path + "" + character.emblem.emblemBackgroundPath + ")",
         height: '100%',
         position: 'absolute',
         top: 0,
@@ -24,30 +24,29 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
     },
     charLight: {
-        marginLeft: auto,
+        marginLeft: 'auto',
     }
 }));
 
-export default function Character({ loading, character }) {
+export default function Character({ loading, character }) {  
+
     const classes = useStyles();
     return (
         <div className={classes.characterCard}>
-            <div ClassName={clsx({[classes.emblemBackground]:loading})}/>
-            <>
+            {character ? <div style={{ backgroundImage: "url(" + path + "" + character.emblem.emblemBackgroundPath + ")" }} className={classes.emblemBackground} /> : <></> }            
                 <div className="container-row">
-                    <div ClassName={classes.charDetails}>
+                    <div className={classes.charDetails}>
                         <Typography gutterBottom variant="h5" component="h2">
-                            {loading ? <Skeleton /> : getKeyByValue(destinyClass, character.classType)}
+                            {(loading || !character) ? <Skeleton /> : getKeyByValue(destinyClass, character.classType)}
                         </Typography>
                         <Typography gutterBottom variant="h6" component="h2">
-                            {loading ? <Skeleton /> : getKeyByValue(destinyRace, character.raceType)}
+                        {(loading || !character) ? <Skeleton /> : getKeyByValue(destinyRace, character.raceType)}
                         </Typography>
                     </div>
-                    <Typography variant="h4" color="textSecondary" component="h4" ClassName={classes.charLight}>
-                        {loading ? <Skeleton /> : character.light}
+                    <Typography variant="h4" color="textSecondary" component="h4" className={classes.charLight}>
+                    {(loading || !character) ? <Skeleton /> : character.light}
                     </Typography>
-                </div>                                                                 
-              </>               
+                </div>                                                                               
       </div>        
     );
 }

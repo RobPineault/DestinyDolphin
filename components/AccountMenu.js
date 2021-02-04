@@ -62,7 +62,7 @@ export default function AccountMenu() {
     if (!signedIn) {  
         
         return (
-            <div className="container-row">
+            <div className="menu-container">
                 <Button variant="outlined" color="secondary">Sign In</Button>
                 <div>
                     <IconButton
@@ -95,7 +95,7 @@ export default function AccountMenu() {
         );
     }    
     const { testToken, bungieToken } = useSelector((state) => state.user)
-    const { initialized, profile, characters } = useSelector((state) => state.user.activeProfile)
+    const { initialized, characters } = useSelector((state) => state.user.activeProfile)
     const dispatch = useDispatch()
 
     useEffect(() => {        
@@ -105,15 +105,16 @@ export default function AccountMenu() {
     }, []);
 
     return (
-        <div className="container-row">
+        <div className="menu-container">
             <Card>
                 <CardContent>
                     <Character loading={characters.loading}
-                        character={characters.data[characters.activeCharacter]}
+                        character={characters.loading ? {} : characters.data[characters.activeCharacter]}
                     />
                 </CardContent>
             </Card>
             <div>
+                <>
                 <IconButton
                     aria-label="sign out"
                     onClick={handleToggle}
@@ -138,7 +139,8 @@ export default function AccountMenu() {
                             </Paper>
                         </Grow>
                     )}
-                </Popper>
+                    </Popper>
+                    </>
             </div>
         </div>
     );
