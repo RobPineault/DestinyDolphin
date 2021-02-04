@@ -5,11 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "analyze": "cross-env ANALYZE=true npm run-script build"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "@next/bundle-analyzer": "^10.0.6",
     "@reduxjs/toolkit": "^1.5.0",
     "axios": "^0.20.0",
     "clsx": "^1.1.1",
@@ -29,6 +32,7 @@
     "swr": "^0.3.6"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "frontmatter-markdown-loader": "^3.6.1",
     "typescript": "^4.1.3"
   }

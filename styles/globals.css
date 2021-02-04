@@ -176,8 +176,8 @@ nav {
 .home-container-1 {
     padding-bottom: 10px;
 }
-.emblem {
-    
+.character-card {
+    height: 100px;
 }
 .emblem-content {
     position: absolute;

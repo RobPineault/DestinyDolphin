@@ -1,7 +1,7 @@
 //import { useRouter } from 'next/router'
 //import ErrorPage from 'next/error'
 import Layout from '../../../../components/Layout'
-import { fetchItemData } from '../../../../lib/destiny/bungieAPI/staticRequests'
+//import { fetchItemData } from '../../../../lib/destiny/bungieAPI/staticRequests'
 import { loadItem } from '../../../../lib/destiny/bungieAPI/storage'
 import { Grid, Card, CardContent, Typography } from '@material-ui/core'
 import { useEffect, useState } from 'react'
@@ -142,13 +142,14 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
     // Get the paths we want to pre-render based on users
     //request manifest links
-    const armor = await fetchItemData("armor")
+    //const armor = await fetchItemData("armor")
+    const fakeArmor = [{ hash: '123', name: "456" }]
     return {
-        paths: armor.map((armorPiece) => {
+        paths: fakeArmor.map((armorPiece) => {
             return {
-                params: {
-                    hash: armorPiece.hash,
+                params: {                    
                     armor: armorPiece.name,
+                    hash: armorPiece.hash,
                 },
             }
         }),

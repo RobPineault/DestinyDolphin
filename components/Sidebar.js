@@ -1,7 +1,9 @@
 import { List, ListItem, ListItemText } from '@material-ui/core';
 import Link from 'next/link'
-import CharacterCard from './CharacterCard'
+import Character from './Character'
 import { useUser } from '../context/userContext'
+import { useSelector, useDispatch } from 'react-redux'
+
 
 const menu = [
     {
@@ -27,17 +29,13 @@ const menu = [
 ];
 
 export default function Sidebar() {
-    const { user } = useUser();
+    const { signedIn } = useSelector((state) => state.user)
+    //const { characters } = useSelector((state) => state.user.activeProfile)
+    // <Character character={characters.data[characters.activeCharacterId]} />
     const i = 0;
-    const disabled = user ? false : true;
+    const disabled = signedIn ? false : true;
     return (
         <>  
-            {user ? (
-                <>
-                <CharacterCard character={user.characters[i]} />           
-            
-                    </>
-            ) : (<div>sign in to unlock account features</div>)} 
             <List className="sidebar-links" dense={true}>
                 {menu.map(item =>
                     <Link key={item.label} href={item.pathname} passHref>

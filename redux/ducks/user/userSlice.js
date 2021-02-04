@@ -11,7 +11,7 @@ if (typeof localStorage != 'undefined') {
     const token = JSON.parse(localStorage.getItem("bungieToken"))
     if (token) {
         initialState = {
-            signedIn: true,            
+            signedIn: true,           
             testToken: {
                 membership_id: 19509215,
                 membershipType: 3,
@@ -22,16 +22,22 @@ if (typeof localStorage != 'undefined') {
                 error: null,
             },
             destinyProfiles: [],
-            activeProfile: {
-                initialized: false,
-                loading: false,
-                error: null,
+            activeProfile: {  
+                initialized: false,                
                 profile: {
+                    loading: false,
+                    error: null,
+                    data: {},
                 },
-                characters: {                    
+                characters: { 
+                    loading: false,
+                    error: null,
+                    activeCharacterId: {},
+                    data: [],
                 },
                 inventory: {
                     loading: true,
+                    error: null,
                     data: {},
                 },
             },            
@@ -56,6 +62,7 @@ const userSlice = createSlice({
                     break;
                 case "initActiveProfile":
                     state.activeProfile.loading = true;
+                    state.activeProfile.loading = true;
                     break;
             }
         },
@@ -67,9 +74,16 @@ const userSlice = createSlice({
                     state.bungieProfile.loading = false;
                     break;
                 case "initActiveProfile":
-                    state.activeProfile.profile = payload.res.profile;
-                    state.activeProfile.characters = payload.characters;
+
+                    state.activeProfile.profile.data = payload.res.profile.data;
+                    state.activeProfile.characters.data = payload.res.profile.data.characterIds.map(charId => {
+                        return payload.res.characters.data[charId]
+                    })                
+                    state.activeProfile.characters.activeCharacter = payload.res.profile.data.characterIds[0]; 
                     state.activeProfile.loading = false;
+                    if (!state.initialized) {
+                        state.initialized = true;
+                    }                                     
                     break;
                 case "characters":
                     state.characters.data = payload.res;
@@ -86,6 +100,16 @@ const userSlice = createSlice({
                     break;
             }
         },
+        setActiveCharacter(state, { payload }) {
+            switch (payload) {
+                case "max":
+                    state.bungieProfile.error = payload.err;
+                    break;
+                case "initActiveProfile":
+                    state.activeProfile.error = payload.err;
+                    break;
+            }
+        }
     }
 })
 
@@ -121,7 +145,7 @@ export const profileRequest = (profile, type) => async dispatch => {
         dispatch(startRequest(type))
         switch (type) {
             case "initActiveProfile":
-                payload.res = await initProfile(profile.membershipType, profile.membershipId )
+                payload.res = await initProfile(profile.membershipType, profile.membershipId)                
                 break
             case "inventory":
                 break

@@ -2,7 +2,6 @@
 import Layout from '../../components/Layout'
 import Item from '../../components/Item'
 import { Tabs, Tab, Button, Typography } from '@material-ui/core'
-import { useUser } from '../../context/userContext'
 import { useEffect, useState } from 'react';
 import { getDefinitions } from '../../lib/destiny/bungieAPI/storage'
 import { getItems } from '../../lib/destiny/user/itemUtils'
@@ -37,8 +36,6 @@ function a11yProps(index) {
 
 
 export default function inventory() {
-    const { user } = useUser();
-    console.log(user);
     const [activeButtons, setActiveButtons] = useState({ bucket: [], slot: [], ammo: [] });
     const [allItems, setAllItems] = useState();    
     const [currentItems, setCurrentItems] = useState(null);

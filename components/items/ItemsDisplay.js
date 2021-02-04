@@ -35,7 +35,7 @@ const ItemsDisplay = ({ filterType, state }) => {
     useEffect(() => {
         if (typeof items.current != "undefined") {
             switch (filterType) {
-                case "weapons":
+                case "weapon":
                     setCurrentItems(filterWeapons(state, items.current))
                     break;
                 case "armor":
