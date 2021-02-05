@@ -61,8 +61,8 @@ const userSlice = createSlice({
                     state.bungieProfile.loading = true;
                     break;
                 case "initActiveProfile":
-                    state.activeProfile.loading = true;
-                    state.activeProfile.loading = true;
+                    state.activeProfile.profile.loading = true;
+                    state.activeProfile.characters.loading = true;
                     break;
             }
         },
@@ -80,9 +80,10 @@ const userSlice = createSlice({
                         return payload.res.characters.data[charId]
                     })                
                     state.activeProfile.characters.activeCharacterId = payload.res.profile.data.characterIds[0]; 
-                    state.activeProfile.loading = false;
-                    if (!state.initialized) {
-                        state.initialized = true;
+                    state.activeProfile.characters.loading = false;
+                    state.activeProfile.profile.loading = false;
+                    if (!state.activeProfile.initialized) {
+                        state.activeProfile.initialized = true;
                     }                                     
                     break;
                 case "characters":
