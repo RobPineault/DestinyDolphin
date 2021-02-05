@@ -11,8 +11,8 @@ export default function HeaderProfile() {
             dispatch(initUser(bungieToken))
         }
     }, []);
-    const activeCharacter = initialized ? characters.data[characters.activeCharacter] : null
-    const charLoading = characters.loading;
+    let activeCharacter = initialized ? characters.data[characters.activeCharacter] : null
+    let charLoading = characters.loading;
     useEffect(() => {
         if (!activeCharacter) {
             activeCharacter = initialized ? characters.data[characters.activeCharacter] : null
