@@ -7,7 +7,7 @@ import Weekly from '../components/Weekly'
 import { useEffect } from 'react'
 import { Grid, Button } from '@material-ui/core'
 //import  BlogTextInfoContentStyle  from '../components/mui/BlogTextInfoContentStyle'
-import ToggleSidebar from '../redux/ducks/sidebar/ToggleSidebar'
+//import ToggleSidebar from '../redux/ducks/sidebar/ToggleSidebar'
 import { useSelector, useDispatch } from 'react-redux'
 
 
@@ -39,7 +39,8 @@ export default function Home() {
                     </Grid>
                 </Grid>
                 <Grid spacing={2} container item xs={6}>
-                    <Grid item xs={6}>                        
+                    <Grid item xs={6}>   
+                        <Xur />
                     </Grid>
                     <Grid item xs={6}>
                         <Xur />
@@ -47,7 +48,7 @@ export default function Home() {
                     </Grid>
                     <Grid spacing={2} container item xs={12} className="article-container">
                         <Grid item xs={12}>
-                            <ToggleSidebar />
+                            <FeatureArticle title="destiny" />
                         </Grid>
                         <Grid item xs={12}>
                             <FeatureArticle title="destiny" />

@@ -1,10 +1,9 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: #efefef;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: #4E5F76;
 }
 
 *,
@@ -145,6 +144,7 @@ nav {
 .featured-article {
     padding: 40px 12px;
     border-radius: 24px !important;
+    background-color: #B38650 !important;
 }
 .weekly {
     padding: 20px 12px;

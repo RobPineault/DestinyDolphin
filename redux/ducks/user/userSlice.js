@@ -79,7 +79,7 @@ const userSlice = createSlice({
                     state.activeProfile.characters.data = payload.res.profile.data.characterIds.map(charId => {
                         return payload.res.characters.data[charId]
                     })                
-                    state.activeProfile.characters.activeCharacter = payload.res.profile.data.characterIds[0]; 
+                    state.activeProfile.characters.activeCharacterId = payload.res.profile.data.characterIds[0]; 
                     state.activeProfile.loading = false;
                     if (!state.initialized) {
                         state.initialized = true;

@@ -24,11 +24,12 @@ const onBeforeLift = (store) => {
 function MyApp({ Component, pageProps }) {
     const store = useStore(pageProps.initialReduxState)
     //let persistor = persistStore(store)
+    //<CssBaseline />
     return (
         <Provider store={store}>
                     <SidebarProvider>
                         <ThemeProvider theme={theme}>
-                            <CssBaseline />
+                            
                             <Component {...pageProps} /> 
                         </ThemeProvider>
                     </SidebarProvider>            

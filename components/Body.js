@@ -32,9 +32,7 @@ const useStyles = makeStyles((theme) => ({
         minHeight: 'calc(100vh - 64px)',
         flexGrow: 1,
         padding: theme.spacing(4),
-        marginRight: '200px',        
-        backgroundSize: 'cover',
-
+        marginRight: '200px',     
         transition: theme.transitions.create(['margin', 'padding'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
@@ -52,28 +50,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Body({ children }) {    
-    const { open } = useSidebar();
-    /*
-    const router = useRouter();
-    const [home, setHome] = useState(false);
-    useEffect(() => {
-        if (router.asPath == '/') {
-            setHome(true)
-        }
-        else { setHome(false) }
-    },[])
-    const home = false;
-    if (page) {
-        if (page === "home") {
-            home = true;
-        }
-    }
-                    className={clsx(classes.content, {
-                    [classes.contentShift]: open,
-                }, { "home-background": home })}
-    
-    */
-    
+    const { open } = useSidebar();    
     const classes = useStyles();
     return (
         <>
@@ -82,8 +59,7 @@ export default function Body({ children }) {
             variant="persistent"
             anchor="left"
             open={open}
-                classes={{ paper: classes.drawerPaper,}                
-            }
+                classes={{ paper: classes.drawerPaper,}}
             >
                 <div style={{ height: "100px" }} />
                 <Sidebar/>

@@ -3,9 +3,9 @@ import { Card, Typography } from '@material-ui/core'
 import Box from '@material-ui/core/Box';
 export default function FeatureArticle({ title }) {
     return (
-        <Box className="featured-article" bgcolor="success.main" >
+        <Box className="featured-article" >
             {props => <Card raised={true}  {...props}>
-                <Typography variant="h5" color="textPrimary">
+                <Typography variant="h5">
                     {title}
                 </Typography>
             </Card>}            
