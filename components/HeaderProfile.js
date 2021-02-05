@@ -13,6 +13,12 @@ export default function HeaderProfile() {
     }, []);
     const activeCharacter = initialized ? characters.data[characters.activeCharacter] : null
     const charLoading = characters.loading;
+    useEffect(() => {
+        if (!activeCharacter) {
+            activeCharacter = initialized ? characters.data[characters.activeCharacter] : null
+        }        
+        charLoading = characters.loading;
+    }, [characters.loading]);    
     return (
         <>
         <Character loading={charLoading}character={activeCharacter}/>
