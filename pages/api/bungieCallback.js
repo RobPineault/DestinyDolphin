@@ -18,18 +18,21 @@ export default (req, res) => {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
     }).then(accessToken => {
+        console.log(cookies.get('reqOrigin').toString());
+        console.log(JSON.stringify(cookies.get('reqOrigin')));
         res.send(createBody(accessToken.token, cookies.get('reqOrigin').toString()))
     }).catch(e => {
         console.log("sign in failed", e);
         res.status(400).send('failed to exchange code for access token');
     })
 }
+//${path}
 function createBody(token, path) {
     return `    
     <script>
     if(window.localStorage){
-        window.localStorage.setItem('bungieToken', ${JSON.stringify(token)});  
+        window.localStorage.setItem('bungieToken', '${JSON.stringify(token)}');  
     }
-    window.location.replace("/${path}")
+    window.location.replace("/")
     </script>`
 }
