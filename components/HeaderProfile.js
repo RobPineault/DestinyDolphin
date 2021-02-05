@@ -11,11 +11,14 @@ export default function HeaderProfile() {
             dispatch(initUser(bungieToken))
         }
     }, []);
-    let activeCharacter = initialized ? characters.data[characters.activeCharacter] : null
+    function getActiveCharacter() {
+        return characters.data.find(character => { character.characterId == characters.activeCharacter })
+    }
+    let activeCharacter = initialized ? getActiveCharacter() : null
     let charLoading = characters.loading;
     useEffect(() => {
-        if (!activeCharacter) {
-            activeCharacter = initialized ? characters.data[characters.activeCharacter] : null
+        if (!characters.loading) {
+            activeCharacter = getActiveCharacter()
         }        
         charLoading = characters.loading;
     }, [characters.loading]);    
@@ -25,4 +28,5 @@ export default function HeaderProfile() {
             </>
     );
 }
+
 
