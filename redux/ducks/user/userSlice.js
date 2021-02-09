@@ -74,12 +74,9 @@ const userSlice = createSlice({
                     state.bungieProfile.loading = false;
                     break;
                 case "initActiveProfile":
-
                     state.activeProfile.profile.data = payload.res.profile.data;
-                    state.activeProfile.characters.data = payload.res.profile.data.characterIds.map(charId => {
-                        return payload.res.characters.data[charId]
-                    })                
-                    state.activeProfile.characters.activeCharacterId = payload.res.profile.data.characterIds[0]; 
+                    state.activeProfile.characters.activeCharacterId = payload.res.profile.data.characterIds[0];
+                    state.activeProfile.characters.data = payload.res.characters.data;                               
                     state.activeProfile.characters.loading = false;
                     state.activeProfile.profile.loading = false;
                     if (!state.activeProfile.initialized) {
@@ -188,4 +185,9 @@ export const signInBungie = () => async dispatch => {
     },
     characters: [{ characterhash: hash, isActive: false },
     ],
+
+    logic for all characters selector
+state.activeProfile.characters.data = payload.res.profile.data.characterIds.map(charId => {
+                        return payload.res.characters.data[charId]
+                    })
  */

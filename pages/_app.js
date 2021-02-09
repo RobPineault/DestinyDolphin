@@ -28,8 +28,7 @@ function MyApp({ Component, pageProps }) {
     return (
         <Provider store={store}>
                     <SidebarProvider>
-                        <ThemeProvider theme={theme}>
-                            
+                        <ThemeProvider theme={theme}>                            
                             <Component {...pageProps} /> 
                         </ThemeProvider>
                     </SidebarProvider>            
