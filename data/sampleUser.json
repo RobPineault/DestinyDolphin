@@ -1,0 +1,234 @@
+{
+  "sidebar": {
+    "open": false
+  },
+  "user": {
+    "signedIn": true,
+    "testToken": {
+      "membership_id": 19509215,
+      "membershipType": 3
+    },
+    "bungieToken": {
+      "access_token": "CL74AhKGAgAg4mxNZ+f6WgcYin9z4hS4GkIYKF9jmiiehmR1gRTcVy3gAAAAZ+yXJ8aaQxSZk+HNu68xHBm9IXU1olF3iBIJOe2U3mL2vw2ocGze8UGH/KpfIlP1mzlvCjUI9gSo2LAj5IMw/PXylgPkKQIu0GBS7NAr0VejgWoPYkdTZ1H2AAHpfAEFKdX/awbqisgEuZ5pL5m/nCSntypeSe8mZxlb6523V5cpAYrOSF2RsseZ6uabJ9y7BQUupW00w0iycplZj7ZF6nHOqDJEKVm1q/91gjZOTKcPHS4yOA3P5ilJITZZltN9zR4HTKFfcfgkuDyL7fc8IgviuYCtnXjExt3hPdo4spA=",
+      "token_type": "Bearer",
+      "expires_in": 3600,
+      "refresh_token": "CL74AhKGAgAgw2ugxcen+JyaBpSBSweoT6QwYzuRK6T+YVOq/5CifljgAAAAGYzWsYiyZgtOMtoiTcZ5jybmONXohSmExk6pu8KdGMQn5WDhkr4+pJc3eWnxVnWwbbwSJRAzsA48VLlVcIjrLhBNP/+jly9zuyqFHeMnnKOlYYGcKw9Reu7WHN2oKD8rOJ8Lzotz4rHpabghsrPqVel+qN5NFjLAeyl0Rflhu7RgxhpAj/aFVeg9HyBEqy613jr8dgImifJoeuoK/M4WdpRtP1PMSwMT8c7Ae92mChkY1HMXffWKE831MNETW/jSnoMJHMvPpI0BKO/Fu7XMBIZkqWO3JBhvViVJ3J3k9fU=",
+      "refresh_expires_in": 7776000,
+      "membership_id": "19509215",
+      "expires_at": "2021-02-05T19:14:16.140Z"
+    },
+    "bungieProfile": {
+      "supplementalDisplayName": "19509215",
+      "iconPath": "/img/profile/avatars/default_avatar.gif",
+      "crossSaveOverride": 0,
+      "isPublic": false,
+      "membershipType": 254,
+      "membershipId": "19509215",
+      "displayName": "wild3beest",
+      "loading": false
+    },
+    "destinyProfiles": [
+      {
+        "dateLastPlayed": "2021-02-10T05:54:15Z",
+        "isOverridden": false,
+        "isCrossSavePrimary": false,
+        "crossSaveOverride": 0,
+        "applicableMembershipTypes": [
+          3
+        ],
+        "isPublic": false,
+        "membershipType": 3,
+        "membershipId": "4611686018483401304",
+        "displayName": "Wildebeest"
+      }
+    ],
+    "activeProfile": {
+      "initialized": true,
+      "profile": {
+        "loading": false,
+        "error": null,
+        "data": {
+          "userInfo": {
+            "crossSaveOverride": 0,
+            "applicableMembershipTypes": [
+              3
+            ],
+            "isPublic": true,
+            "membershipType": 3,
+            "membershipId": "4611686018483401304",
+            "displayName": "Wildebeest"
+          },
+          "dateLastPlayed": "2021-02-10T05:54:15Z",
+          "versionsOwned": 127,
+          "characterIds": [
+            "2305843009405057135",
+            "2305843009722074795",
+            "2305843009753087697"
+          ],
+          "seasonHashes": [
+            2809059427,
+            2809059426
+          ],
+          "currentSeasonHash": 2809059426,
+          "currentSeasonRewardPowerCap": 1310
+        }
+      },
+      "characters": {
+        "loading": false,
+        "error": null,
+        "activeCharacterId": "2305843009405057135",
+        "data": {
+          "2305843009405057135": {
+            "membershipId": "4611686018483401304",
+            "membershipType": 3,
+            "characterId": "2305843009405057135",
+            "dateLastPlayed": "2021-02-10T05:54:15Z",
+            "minutesPlayedThisSession": "33",
+            "minutesPlayedTotal": "17347",
+            "light": 1263,
+            "stats": {
+              "144602215": 47,
+              "392767087": 72,
+              "1735777505": 35,
+              "1935470627": 1263,
+              "1943323491": 55,
+              "2996146975": 57,
+              "4244567218": 58
+            },
+            "raceHash": 898834093,
+            "genderHash": 3111576190,
+            "classHash": 2271682572,
+            "raceType": 2,
+            "classType": 2,
+            "genderType": 0,
+            "emblemPath": "/common/destiny2_content/icons/a6e3583c1357bcb810133c5b3a9e7c5d.jpg",
+            "emblemBackgroundPath": "/common/destiny2_content/icons/a5ed0c269f2cba13e6a3ec9b128c8f26.jpg",
+            "emblemHash": 4261480748,
+            "emblemColor": {
+              "red": 5,
+              "green": 12,
+              "blue": 16,
+              "alpha": 255
+            },
+            "levelProgression": {
+              "progressionHash": 1716568313,
+              "dailyProgress": 0,
+              "dailyLimit": 0,
+              "weeklyProgress": 0,
+              "weeklyLimit": 0,
+              "currentProgress": 0,
+              "level": 50,
+              "levelCap": 50,
+              "stepIndex": 50,
+              "progressToNextLevel": 0,
+              "nextLevelAt": 0
+            },
+            "baseCharacterLevel": 50,
+            "percentToNextLevel": 0
+          },
+          "2305843009722074795": {
+            "membershipId": "4611686018483401304",
+            "membershipType": 3,
+            "characterId": "2305843009722074795",
+            "dateLastPlayed": "2021-02-09T04:04:44Z",
+            "minutesPlayedThisSession": "62",
+            "minutesPlayedTotal": "1477",
+            "light": 1257,
+            "stats": {
+              "144602215": 48,
+              "392767087": 64,
+              "1735777505": 35,
+              "1935470627": 1257,
+              "1943323491": 71,
+              "2996146975": 40,
+              "4244567218": 48
+            },
+            "raceHash": 2803282938,
+            "genderHash": 3111576190,
+            "classHash": 3655393761,
+            "raceType": 1,
+            "classType": 0,
+            "genderType": 0,
+            "emblemPath": "/common/destiny2_content/icons/9acfa6608227989d894352158463c53c.jpg",
+            "emblemBackgroundPath": "/common/destiny2_content/icons/3da566c8c4fac1357dbe6859c554bfee.jpg",
+            "emblemHash": 1788892384,
+            "emblemColor": {
+              "red": 18,
+              "green": 16,
+              "blue": 74,
+              "alpha": 255
+            },
+            "levelProgression": {
+              "progressionHash": 1716568313,
+              "dailyProgress": 0,
+              "dailyLimit": 0,
+              "weeklyProgress": 0,
+              "weeklyLimit": 0,
+              "currentProgress": 0,
+              "level": 50,
+              "levelCap": 50,
+              "stepIndex": 50,
+              "progressToNextLevel": 0,
+              "nextLevelAt": 0
+            },
+            "baseCharacterLevel": 50,
+            "percentToNextLevel": 0
+          },
+          "2305843009753087697": {
+            "membershipId": "4611686018483401304",
+            "membershipType": 3,
+            "characterId": "2305843009753087697",
+            "dateLastPlayed": "2021-02-10T05:20:35Z",
+            "minutesPlayedThisSession": "0",
+            "minutesPlayedTotal": "562",
+            "light": 1259,
+            "stats": {
+              "144602215": 70,
+              "392767087": 57,
+              "1735777505": 23,
+              "1935470627": 1259,
+              "1943323491": 49,
+              "2996146975": 40,
+              "4244567218": 28
+            },
+            "raceHash": 2803282938,
+            "genderHash": 2204441813,
+            "classHash": 671679327,
+            "raceType": 1,
+            "classType": 1,
+            "genderType": 1,
+            "emblemPath": "/common/destiny2_content/icons/0a56b87102ce05faf17f6452241c614d.jpg",
+            "emblemBackgroundPath": "/common/destiny2_content/icons/a3b4f67472458a8cc8b1cf3da967acb0.jpg",
+            "emblemHash": 4242592192,
+            "emblemColor": {
+              "red": 3,
+              "green": 3,
+              "blue": 5,
+              "alpha": 255
+            },
+            "levelProgression": {
+              "progressionHash": 1716568313,
+              "dailyProgress": 0,
+              "dailyLimit": 0,
+              "weeklyProgress": 0,
+              "weeklyLimit": 0,
+              "currentProgress": 0,
+              "level": 50,
+              "levelCap": 50,
+              "stepIndex": 50,
+              "progressToNextLevel": 0,
+              "nextLevelAt": 0
+            },
+            "baseCharacterLevel": 50,
+            "percentToNextLevel": 0
+          }
+        }
+      },
+      "inventory": {
+        "loading": true,
+        "error": null,
+        "data": {}
+      }
+    }
+  }
+}

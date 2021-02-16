@@ -2,8 +2,6 @@ import '../styles/globals.css'
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../lib/theme';
-//import UserProvider from '../context/userContext'
-import SidebarProvider from '../context/sidebarContext'
 import { Provider } from 'react-redux'
 import { useStore } from '../redux/store'
 /*
@@ -24,14 +22,13 @@ const onBeforeLift = (store) => {
 function MyApp({ Component, pageProps }) {
     const store = useStore(pageProps.initialReduxState)
     //let persistor = persistStore(store)
-    //<CssBaseline />
+    
     return (
         <Provider store={store}>
-                    <SidebarProvider>
-                        <ThemeProvider theme={theme}>                            
-                            <Component {...pageProps} /> 
-                        </ThemeProvider>
-                    </SidebarProvider>            
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <Component {...pageProps} />
+            </ThemeProvider>
         </Provider>
     )
 }

@@ -1,12 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getProfiles, initProfile } from '../../../lib/destiny/bungieAPI/commonRequests'
+import { getProfiles, initProfile, profileData, characterData } from '../../../lib/destiny/bungieAPI/commonRequests'
 
-const requestType = {
-    membership: "membership",
-    profile: "profile",
-    characters: "characters",
-}
+
+
+
 let initialState = {}
+/*
+if (process.env.HOSTNAME == 'localhost') {
+    import data from 'data/local/'
+}*/
 if (typeof localStorage != 'undefined') {
     const token = JSON.parse(localStorage.getItem("bungieToken"))
     if (token) {
@@ -32,13 +34,13 @@ if (typeof localStorage != 'undefined') {
                 characters: { 
                     loading: false,
                     error: null,
-                    activeCharacterId: {},
+                    activeCharacterId: '',
                     data: [],
                 },
                 inventory: {
-                    loading: true,
+                    loading: false,
                     error: null,
-                    data: {},
+                    data: null,
                 },
             },            
         }
@@ -64,6 +66,9 @@ const userSlice = createSlice({
                     state.activeProfile.profile.loading = true;
                     state.activeProfile.characters.loading = true;
                     break;
+                case "inventory":
+                    state.activeProfile.inventory.loading = true;
+                    break;
             }
         },
         requestSuccess(state, { payload }) {
@@ -83,8 +88,9 @@ const userSlice = createSlice({
                         state.activeProfile.initialized = true;
                     }                                     
                     break;
-                case "characters":
-                    state.characters.data = payload.res;
+                case "inventory":
+                    state.activeProfile.inventory.data = payload.res;
+                    state.activeProfile.inventory.loading = false;
                     break;
             }
         },
@@ -96,22 +102,18 @@ const userSlice = createSlice({
                 case "initActiveProfile":
                     state.activeProfile.error = payload.err;
                     break;
+                case "inventory":
+                    state.activeProfile.inventory.error = payload.err;
+                    break;
             }
         },
         setActiveCharacter(state, { payload }) {
-            switch (payload) {
-                case "max":
-                    state.bungieProfile.error = payload.err;
-                    break;
-                case "initActiveProfile":
-                    state.activeProfile.error = payload.err;
-                    break;
-            }
+            state.activeProfile.characters.activeCharacterId = payload.characterId
         }
     }
 })
 
-export const { startRequest, requestSuccess, requestFailure } = userSlice.actions
+export const { startRequest, requestSuccess, requestFailure, setActiveCharacter } = userSlice.actions
 
 export default userSlice.reducer
 
@@ -126,7 +128,7 @@ export const initUser = (bnetToken) => async dispatch => {
         payload.res = await getProfiles(bnetToken.membership_id)
         //const membershipType = membership.profiles[0].membershipType        
         dispatch(requestSuccess(payload))
-        dispatch(profileRequest(getPrimaryProfile(payload.res.profiles), "initActiveProfile"))
+        dispatch(profileRequest(getPrimaryProfile(payload.res.profiles), "initActiveProfile"))        
     } catch (err) {
         payload.err = err.toString()
         dispatch(requestFailure(payload))
@@ -146,6 +148,7 @@ export const profileRequest = (profile, type) => async dispatch => {
                 payload.res = await initProfile(profile.membershipType, profile.membershipId)                
                 break
             case "inventory":
+                payload.res = await profileData(profile.membershipType, profile.membershipId)
                 break
         }        
         dispatch(requestSuccess(payload))
@@ -154,6 +157,35 @@ export const profileRequest = (profile, type) => async dispatch => {
         dispatch(requestFailure(payload))
     }
 }
+export const authorizedRequest = (path) => async dispatch => {
+    // check for token
+    // check expired
+    // update if expired
+    let payload = {
+        type: "authRequest",
+        res: null,
+        err: null,
+    }
+    try {
+        var token = JSON.parse(window.localStorage.getItem('bungieToken'));
+    } catch (err) {
+        payload.err = "token not found"
+        dispatch(requestFailure(payload))
+    }
+
+    
+    try {
+        dispatch(startRequest(payload.type))
+        payload.res = await getProfiles(bnetToken.membership_id)
+        //const membershipType = membership.profiles[0].membershipType        
+        dispatch(requestSuccess(payload))
+        dispatch(profileRequest(getPrimaryProfile(payload.res.profiles), "initActiveProfile"))
+    } catch (err) {
+        payload.err = err.toString()
+        dispatch(requestFailure(payload))
+    }
+}
+
 function getPrimaryProfile(profiles) {
     if (profiles.length == 1) {
         return profiles[0]
@@ -166,6 +198,8 @@ function getPrimaryProfile(profiles) {
         })
     }
 }
+
+
 /*
 export const signInBungie = () => async dispatch => {
     try {
@@ -190,4 +224,10 @@ export const signInBungie = () => async dispatch => {
 state.activeProfile.characters.data = payload.res.profile.data.characterIds.map(charId => {
                         return payload.res.characters.data[charId]
                     })
+
+const requestType = {
+    membership: "membership",
+    profile: "profile",
+    characters: "characters",
+}
  */

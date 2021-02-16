@@ -1,8 +1,7 @@
 import { List, ListItem, ListItemText } from '@material-ui/core';
 import Link from 'next/link'
-import Character from './Character'
-import { useUser } from '../context/userContext'
-import { useSelector, useDispatch } from 'react-redux'
+import SignIn from './SignIn'
+import { useSelector } from 'react-redux'
 
 
 const menu = [
@@ -29,22 +28,24 @@ const menu = [
 ];
 
 export default function Sidebar() {
-    const { signedIn } = useSelector((state) => state.user)
-    //const { characters } = useSelector((state) => state.user.activeProfile)
-    // <Character character={characters.data[characters.activeCharacterId]} />
-    const i = 0;
-    const disabled = signedIn ? false : true;
+    const signedIn = useSelector((state) => state.user.signedIn)
     return (
         <>  
-            <List className="sidebar-links" dense={true}>
+            {signedIn ? (<List className="sidebar-links" dense={true}>
                 {menu.map(item =>
                     <Link key={item.label} href={item.pathname} passHref>
-                        <ListItem disabled={ disabled } button component="a" >
+                        <ListItem button component="a" >
                             <ListItemText>{item.label}</ListItemText>
                         </ListItem>
                     </Link>
                 )}
-            </List>
+            </List>) : (
+                    <>
+                        <p>This content requires login</p>
+                        <SignIn />
+                        </>
+                    )}
+            
         </>
     );
 }

@@ -37,7 +37,7 @@ export default function AccountMenu(props) {
     }
 
     return (
-        <>
+        <div>
             <IconButton
                 aria-label="toggle menu"
                 onClick={handleToggle}
@@ -63,7 +63,7 @@ export default function AccountMenu(props) {
                     </Grow>
                 )}
             </Popper>
-        </>
+        </div>
     )
 
 }

@@ -1,7 +1,5 @@
 import { useMemo } from 'react'
 import { configureStore } from '@reduxjs/toolkit'
-
-
 import rootReducer from './rootReducer'
 
 let store
@@ -37,12 +35,3 @@ export function useStore(initialState) {
     const store = useMemo(() => initializeStore(initialState), [initialState])
     return store
 }
-
-/*
- * middleware: getDefaultMiddleware({
-            serializableCheck: {
-                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
-            }
-        })
- * 
- * */

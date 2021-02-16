@@ -3,7 +3,8 @@ import { useState, useEffect} from 'react'
 import { useRouter } from 'next/router';
 import { Drawer, Divider, Toolbar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { useSidebar } from '../context/sidebarContext'
+import { useSelector } from 'react-redux'
+
 import Sidebar from './Sidebar'
 const drawerWidth = 200;
 
@@ -49,8 +50,8 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Body({ children }) {    
-    const { open } = useSidebar();    
+export default function Body({ children }) {       
+    const open = useSelector((state) => state.sidebar.open)
     const classes = useStyles();
     return (
         <>

@@ -11,7 +11,7 @@ const ItemsDisplay = ({ filterType, state }) => {
     const [currentItems, setCurrentItems] = useState()
     const [page, setPage] = useState(1)
     const items = useRef()
-    //console.log("rendered")
+    console.log(typeof items.current != "undefined")
 
     useEffect(() => {
         getDefinition("InventoryItem").then(data => {

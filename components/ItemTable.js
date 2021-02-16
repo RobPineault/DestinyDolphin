@@ -24,7 +24,7 @@ export default function ItemTable({ items, itemType }) {
                 <TableBody>
                     {items ? items.map((row) => {
                         const s = damageTypes[row.defaultDamageType];
-                        const link = '/items/'+ itemType +'/' + row.hash + '/' + row.displayProperties.name.replace(/\s/g, '');
+                        const link = itemType ? '/items/'+ itemType +'/' + row.hash + '/' + row.displayProperties.name.replace(/\s/g, ''): '';
                         return (
                         <TableRow key={row.index}>
                                 <TableCell component="th" scope="row" padding="none">
