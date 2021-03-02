@@ -63,7 +63,7 @@ const ItemsDisplay = ({inventory, state }) => {
         return slice(currentItems, (page - 1) * pageSize, page * pageSize);
     }
     return (
-        <>
+        <>            
             <TableContainer component={Card}>
                 <Table className="item-table" aria-label="simple table" padding="default">
                     <ItemTable items={getDisplayItems()} itemType={null} />

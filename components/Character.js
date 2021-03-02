@@ -35,7 +35,7 @@ export default function Character({ characterId }) {
     let classType, raceType, light, emblemBackgroundPath = ''
     //const initialized = useSelector(state => state.user.activeProfile.initialized)
     //const loading = useSelector(state => state.user.activeProfile.characters.loading)
-    const character = useSelector(state => state.user.activeProfile.characters.data[characterId])
+    const character = useSelector(state => state.user.activeProfile.characters[characterId])
     if (character) {
         classType = getKeyByValue(destinyClass, character.classType)
         raceType = getKeyByValue(destinyRace, character.raceType)

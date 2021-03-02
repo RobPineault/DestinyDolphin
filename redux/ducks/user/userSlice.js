@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { getProfiles, initProfile, profileData, characterData } from '../../../lib/destiny/bungieAPI/commonRequests'
-
+import { catigorizeCharacterItems } from '../../../lib/destiny/itemUtils'
 
 
 
@@ -14,35 +14,20 @@ if (typeof localStorage != 'undefined') {
     if (token) {
         initialState = {
             signedIn: true,           
-            testToken: {
-                membership_id: 19509215,
-                membershipType: 3,
-            },
             bungieToken: token,
             bungieProfile: {
                 loading: false,
-                error: null,
             },
             destinyProfiles: [],
             activeProfile: {  
-                initialized: false,                
-                profile: {
-                    loading: false,
-                    error: null,
-                    data: {},
-                },
-                characters: { 
-                    loading: false,
-                    error: null,
-                    activeCharacterId: '',
-                    data: [],
-                },
-                inventory: {
-                    loading: false,
-                    error: null,
-                    data: null,
-                },
-            },            
+                initialized: false,
+                loading: false,
+                profile: {},
+                characters: {},
+            },
+            inventory: {
+                loading: false,
+            }
         }
     }
     else {
@@ -63,34 +48,42 @@ const userSlice = createSlice({
                     state.bungieProfile.loading = true;
                     break;
                 case "initActiveProfile":
-                    state.activeProfile.profile.loading = true;
-                    state.activeProfile.characters.loading = true;
+                    state.activeProfile.loading = true;
                     break;
                 case "inventory":
-                    state.activeProfile.inventory.loading = true;
+                    state.inventory.loading = true;
                     break;
             }
         },
         requestSuccess(state, { payload }) {
-            switch (payload.type) {
+            const { type, res } = payload;
+            switch (type) {
                 case "profiles":
-                    state.bungieProfile = payload.res.bnetMembership;
-                    state.destinyProfiles = payload.res.profiles;
+                    state.bungieProfile = res.bnetMembership;
+                    state.destinyProfiles = res.profiles;
                     state.bungieProfile.loading = false;
                     break;
                 case "initActiveProfile":
-                    state.activeProfile.profile.data = payload.res.profile.data;
-                    state.activeProfile.characters.activeCharacterId = payload.res.profile.data.characterIds[0];
-                    state.activeProfile.characters.data = payload.res.characters.data;                               
-                    state.activeProfile.characters.loading = false;
-                    state.activeProfile.profile.loading = false;
+                    state.activeProfile.profile = res.profile.data;
+                    state.activeProfile.activeCharacterId = res.profile.data.characterIds[0];
+                    state.activeProfile.characters = res.characters.data;                               
+                    state.activeProfile.loading = false;
                     if (!state.activeProfile.initialized) {
                         state.activeProfile.initialized = true;
                     }                                     
                     break;
-                case "inventory":
-                    state.activeProfile.inventory.data = payload.res;
-                    state.activeProfile.inventory.loading = false;
+                case "inventory":          
+                    state.inventory.profile = res.profileInventory.data.items;
+                    state.inventory.currency = res.profileCurrencies.data.items;
+                    state.inventory.characters = catigorizeCharacterItems(
+                        state.activeProfile.profile.characterIds,
+                        res.characterInventories.data,
+                        res.characterEquipment.data);
+                    if (!state.inventory.itemComponents) {
+                        state.inventory.itemComponents = {}}
+                    state.inventory.itemComponents.sockets = res.itemComponents.sockets.data
+                    state.inventory.profilePlugSets = res.profilePlugSets.data
+                    state.inventory.loading = false;
                     break;
             }
         },
@@ -103,7 +96,7 @@ const userSlice = createSlice({
                     state.activeProfile.error = payload.err;
                     break;
                 case "inventory":
-                    state.activeProfile.inventory.error = payload.err;
+                    state.inventory.error = payload.err;
                     break;
             }
         },

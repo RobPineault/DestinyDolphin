@@ -20,7 +20,12 @@ export default (req, res) => {
     }).then(accessToken => {
         console.log(cookies.get('reqOrigin').toString());
         console.log(JSON.stringify(cookies.get('reqOrigin')));
-        res.send(createBody(accessToken.token, cookies.get('reqOrigin').toString()))
+        let token = accessToken.token;
+        token.expires_at = now + token.expires_in * 1000;
+        token.refresh_expires_at = now + token.refresh_expires_in * 1000;
+        delete token.expires_in;
+        delete token.refresh_expires_in;
+        res.send(createBody(token, cookies.get('reqOrigin').toString()))
     }).catch(e => {
         console.log("sign in failed", e);
         res.status(400).send('failed to exchange code for access token');

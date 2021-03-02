@@ -101,8 +101,8 @@ export default function inventory() {
         (state) => {
             return {
                 initialized: state.user.activeProfile.initialized,
-                userInfo: state.user.activeProfile.profile.data.userInfo,
-                inventory: state.user.activeProfile.inventory.data
+                userInfo: state.user.activeProfile.profile.userInfo,
+                inventory: state.user.activeProfile.inventory
             }
         },
         shallowEqual

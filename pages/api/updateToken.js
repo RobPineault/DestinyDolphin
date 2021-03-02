@@ -16,7 +16,13 @@ export default (req, res) => {
         }
     }
     axios.post(url, qs.stringify(requestBody), options).then(response => {
-        res.status(200).json({ token: response.data })
+        let token = response.data
+        const now = new Date().getTime();
+        token.expires_at = now + token.expires_in * 1000;        
+        token.refresh_expires_at = now + token.refresh_expires_in * 1000;
+        delete token.expires_in;
+        delete token.refresh_expires_in;
+        res.status(200).json({ token: token })
     }).catch(e => {
         console.log(e)
         res.status(400).send(e);

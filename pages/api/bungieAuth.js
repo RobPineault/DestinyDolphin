@@ -7,6 +7,7 @@ export default (req, res) => {
     const state = cookies.get('state') || crypto.randomBytes(20).toString('hex');
     
     cookies.set('state', state, { maxAge: 360000 })
+    console.log(req.query)
     cookies.set('reqOrigin', req.query)
     const redirectUri = oauth2.authorizeURL({
         response_type: 'code',        

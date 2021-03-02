@@ -8,18 +8,17 @@ import { FormControl, Select, MenuItem, InputBase } from '@material-ui/core'
 
 export default function HeaderProfile() {
     const dispatch = useDispatch()
-    const { bungieToken, initialized, userInfo } = useSelector(
+    const { bungieToken, initialized } = useSelector(
         (state) => {
             return {
                 bungieToken: state.user.bungieToken,
                 initialized: state.user.activeProfile.initialized,
-                userInfo: state.user.activeProfile.profile.data.userInfo,
             }
         },
         shallowEqual
     )
-    const characterIds = useSelector(state => state.user.activeProfile.profile.data.characterIds)
-    const activeCharacterId = useSelector(state => state.user.activeProfile.characters.activeCharacterId)
+    const characterIds = useSelector(state => state.user.activeProfile.profile.characterIds)
+    const activeCharacterId = useSelector(state => state.user.activeProfile.activeCharacterId)
     useEffect(() => {
         if (!initialized) {
             dispatch(initUser(bungieToken))
