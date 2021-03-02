@@ -18,9 +18,9 @@ export default (req, res) => {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
     }).then(accessToken => {
-        console.log(cookies.get('reqOrigin').toString());
-        console.log(JSON.stringify(cookies.get('reqOrigin')));
+        console.log(cookies.get('reqOrigin'));
         let token = accessToken.token;
+        const now = new Date().getTime();
         token.expires_at = now + token.expires_in * 1000;
         token.refresh_expires_at = now + token.refresh_expires_in * 1000;
         delete token.expires_in;
