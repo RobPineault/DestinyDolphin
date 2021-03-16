@@ -1,6 +1,6 @@
 import Character from './Character'
 import { initUser, setActiveCharacter, profileRequest } from '../redux/ducks/user/userSlice'
-import { useSelector, useDispatch, shallowEqual } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { FormControl, Select, MenuItem, InputBase } from '@material-ui/core'
 //import { createSelector } from '@reduxjs/toolkit'
@@ -8,22 +8,15 @@ import { FormControl, Select, MenuItem, InputBase } from '@material-ui/core'
 
 export default function HeaderProfile() {
     const dispatch = useDispatch()
-    const { bungieToken, initialized } = useSelector(
-        (state) => {
-            return {
-                bungieToken: state.user.bungieToken,
-                initialized: state.user.activeProfile.initialized,
-            }
-        },
-        shallowEqual
-    )
+    const initialized = useSelector((state) => state.user.activeProfile.initialized)
     const characterIds = useSelector(state => state.user.activeProfile.profile.characterIds)
     const activeCharacterId = useSelector(state => state.user.activeProfile.activeCharacterId)
+
     useEffect(() => {
         if (!initialized) {
-            dispatch(initUser(bungieToken))
+            dispatch(initUser())
         }
-    }, []);
+    }, [initialized]);
     
     const handleChange = (event) => {
         dispatch(setActiveCharacter({characterId: event.target.value}))

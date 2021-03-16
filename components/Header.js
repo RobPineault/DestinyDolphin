@@ -14,8 +14,13 @@ export default function Header() {
                 <Toolbar className="container-row">
                     <SidebarMenu signedIn={signedIn} />                
                     <Nav />
-                    {signedIn ? <HeaderProfile /> : <SignIn />}
-                    <AccountMenu signedIn={signedIn} />                    
+                    {signedIn ?
+                        <>
+                            <HeaderProfile />
+                            <AccountMenu />
+                        </> :
+                        <SignIn />
+                    }                                       
                 </Toolbar>
             </AppBar>
             <Toolbar id="back-to-top-anchor" />

@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { getProfiles, initProfile, profileData, characterData } from '../../../lib/destiny/bungieAPI/commonRequests'
+import { updateToken } from '../../../lib/destiny/bungieAPI/bungieRequests'
 import { catigorizeCharacterItems } from '../../../lib/destiny/itemUtils'
 
 
@@ -102,46 +103,53 @@ const userSlice = createSlice({
         },
         setActiveCharacter(state, { payload }) {
             state.activeProfile.characters.activeCharacterId = payload.characterId
-        }
+        },
+        setToken(state, { payload }) {
+            state.bungieToken = payload.token
+        },
     }
 })
 
-export const { startRequest, requestSuccess, requestFailure, setActiveCharacter } = userSlice.actions
+export const { startRequest, requestSuccess, requestFailure, setActiveCharacter, setToken } = userSlice.actions
 
 export default userSlice.reducer
 
-export const initUser = (bnetToken) => async dispatch => { 
+export const initUser = () => async (dispatch, getState) => { 
     let payload = {
         type: "profiles",
         res: null,
         err: null,
     }
+    const membershipID = getState().user.bungieToken.membership_id;
     try {        
         dispatch(startRequest(payload.type))
-        payload.res = await getProfiles(bnetToken.membership_id)
+        payload.res = await getProfiles(membershipID)
         //const membershipType = membership.profiles[0].membershipType        
         dispatch(requestSuccess(payload))
-        dispatch(profileRequest(getPrimaryProfile(payload.res.profiles), "initActiveProfile"))        
+        dispatch(profileRequest("initActiveProfile"))        
     } catch (err) {
         payload.err = err.toString()
         dispatch(requestFailure(payload))
     }    
 }
 
-export const profileRequest = (profile, type) => async dispatch => {
+export const profileRequest = (type) => async (dispatch, getState) => {
     let payload = {
         type: type,
         res: null,
         err: null,
     }
+    const userInfo = getState().user.activeProfile.profile.userInfo || getPrimaryProfile(getState().user.destinyProfiles);
+    await dispatch(validateToken());
+    const token = getState().user.bungieToken;
     try {
         dispatch(startRequest(type))
         switch (type) {
             case "initActiveProfile":
-                payload.res = await initProfile(profile.membershipType, profile.membershipId)                
+                payload.res = await initProfile(userInfo, token)                
                 break
             case "inventory":
-                payload.res = await profileData(profile.membershipType, profile.membershipId)
+                payload.res = await profileData(userInfo, token)
                 break
         }        
         dispatch(requestSuccess(payload))
@@ -150,32 +158,17 @@ export const profileRequest = (profile, type) => async dispatch => {
         dispatch(requestFailure(payload))
     }
 }
-export const authorizedRequest = (path) => async dispatch => {
-    // check for token
-    // check expired
-    // update if expired
-    let payload = {
-        type: "authRequest",
-        res: null,
-        err: null,
-    }
-    try {
-        var token = JSON.parse(window.localStorage.getItem('bungieToken'));
-    } catch (err) {
-        payload.err = "token not found"
-        dispatch(requestFailure(payload))
-    }
-
-    
-    try {
-        dispatch(startRequest(payload.type))
-        payload.res = await getProfiles(bnetToken.membership_id)
-        //const membershipType = membership.profiles[0].membershipType        
-        dispatch(requestSuccess(payload))
-        dispatch(profileRequest(getPrimaryProfile(payload.res.profiles), "initActiveProfile"))
-    } catch (err) {
-        payload.err = err.toString()
-        dispatch(requestFailure(payload))
+export const validateToken = () => async (dispatch, getState) => {
+    const token = getState().user.bungieToken;
+    const now = new Date().getTime()
+    if (token.expires_at < now) {
+        console.log("updating token");
+        const updatedToken = await updateToken(token.refresh_token)
+        if (updatedToken) {
+            dispatch(setToken({ token: updatedToken }))
+        } else {
+            throw "Could not update token";
+        }
     }
 }
 

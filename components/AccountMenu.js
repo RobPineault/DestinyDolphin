@@ -4,8 +4,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import firebase from '../lib/auth/initFirebase'
 import { useSelector, useDispatch } from 'react-redux'
 
-export default function AccountMenu(props) {
-    const { signedIn } = props
+export default function AccountMenu() {
     const [open, setOpen] = useState(false);
     const anchorRef = useRef(null);
     const prevOpen = useRef(open);
@@ -29,11 +28,12 @@ export default function AccountMenu(props) {
 
     const handleSignout = () => {
         window.localStorage.removeItem('bungieToken');
-        firebase.auth().signOut().then(function () {
-            location.reload();
-        }).catch(function (error) {
-            console.log(error)
-        });
+        location.reload();
+       // firebase.auth().signOut().then(function () {
+           // location.reload();
+        //}).catch(function (error) {
+           // console.log(error)
+       // });
     }
 
     return (
