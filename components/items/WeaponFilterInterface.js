@@ -10,8 +10,8 @@ export default function WeaponFilterInterface({ dispatch, state }) {
     }
     return (
         <>
-            <Grid component={Paper} container>
-                    <Grid item>
+            <Grid component={Paper} spacing={2} container>
+                    <Grid item xs>
                         <Typography className="label-underline" variant="h6" color="textPrimary">
                             Slot
                         </Typography>
@@ -21,7 +21,7 @@ export default function WeaponFilterInterface({ dispatch, state }) {
                         filterCategory="slot"
                         filterEnum={weaponSlot} />
                     </Grid>
-                    <Grid item>
+                <Grid item xs >
                         <Typography className="label-underline" variant="h6" color="textPrimary">
                             Ammo
                         </Typography>
@@ -31,7 +31,7 @@ export default function WeaponFilterInterface({ dispatch, state }) {
                         filterCategory="ammo"
                         filterEnum={ammunitionType} />
                 </Grid>                
-                <Grid item>
+                <Grid item xs>
                     <Typography className="label-underline" variant="h6" color="textPrimary">
                         Damage Type
                         </Typography>
@@ -41,7 +41,7 @@ export default function WeaponFilterInterface({ dispatch, state }) {
                         filterCategory="damage"
                         filterEnum={damageType}/>
                 </Grid>
-                <Grid item>
+                <Grid item xs>
                     <Typography className="label-underline" variant="h6" color="textPrimary">
                         Rarity
                         </Typography>
@@ -51,7 +51,7 @@ export default function WeaponFilterInterface({ dispatch, state }) {
                         filterCategory="tier"
                         filterEnum={tierType}/>
                 </Grid>
-                <Grid item>
+                <Grid item xs>
                     <Typography className="label-underline" variant="h6" color="textPrimary">
                         Type
                         </Typography>

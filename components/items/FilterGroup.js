@@ -13,8 +13,9 @@ const FilterGroup = ({ toggle, activeButtons, filterCategory, filterEnum }) => {
                 if (filter != "None" && filter != "Unknown" && filter != "Raid" && filter != "Currency") {
                     return (
                         <Button
-                            key={filter}
-                            
+                            key={filter} 
+                            //fullWidth={ false }
+                            //color="secondary"
                             className={isActive(filterEnum[filter])}
                             onClick={() => toggle(filterCategory, filterEnum[filter])}
                         >{filter.replace(/([A-Z])/g, ' $1').trim()}</Button>

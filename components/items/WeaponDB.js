@@ -43,7 +43,7 @@ const WeaponDB = () => {
 
 	return (
         <>
-            <WeaponFilterInterface dispatch={dispatch} state={state} />
+            <WeaponFilterInterface style="margin-bottom: 32px;" dispatch={dispatch} state={state} />
             <ItemsDisplay filterType="weapon" state={state} />            
         </>
 		)

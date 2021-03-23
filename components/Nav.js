@@ -97,8 +97,8 @@ function Nav(props) {
                                     <List className="sub-menu white" dense={true} disablePadding={true}>
                                         {item.subMenu.map((subItem, i) =>
                                             <div key= { subItem.label }>
-                                                <Link  href={subItem.pathname} passHref>
-                                                <ListItem button component="a" >
+                                                <Link href={subItem.pathname} passHref>
+                                                    <ListItem button disabled={!subItem.active} component="a" >
                                                         <ListItemText>{subItem.label}</ListItemText>
                                                 </ListItem>
                                                 </Link> 

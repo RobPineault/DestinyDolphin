@@ -62,7 +62,7 @@ const ItemsDisplay = ({ filterType, state }) => {
     }
     return (
         <>
-            <TableContainer component={Card}>
+            <TableContainer className="divide-top" component={Card}>
                 <Table className="item-table" aria-label="simple table" padding="default">
                     <ItemTable items={getDisplayItems()} itemType={filterType} />
                    </Table>

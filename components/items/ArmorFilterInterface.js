@@ -9,8 +9,9 @@ export default function ArmorFilterInterface({ dispatch, state }) {
     }
     return (
         <>
-            <Grid component={Paper} container>
-                <Grid item>
+            <Grid component={Paper} spacing={2} container>
+                <Grid item xs={1}></Grid>
+                <Grid item xs={3}>
                     <Typography className="label-underline" variant="h6" color="textPrimary">
                         Class
                         </Typography>
@@ -20,7 +21,7 @@ export default function ArmorFilterInterface({ dispatch, state }) {
                         filterCategory="class"
                         filterEnum={destinyClass} />
                 </Grid> 
-                    <Grid item>
+                <Grid item xs={3}>
                         <Typography className="label-underline" variant="h6" color="textPrimary">
                             Slot
                         </Typography>
@@ -30,7 +31,7 @@ export default function ArmorFilterInterface({ dispatch, state }) {
                         filterCategory="type"
                         filterEnum={armorType} />
                     </Grid>                                   
-                <Grid item>
+                <Grid item xs={3}>
                     <Typography className="label-underline" variant="h6" color="textPrimary">
                         Rarity
                         </Typography>

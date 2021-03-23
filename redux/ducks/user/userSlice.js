@@ -160,8 +160,9 @@ export const profileRequest = (type) => async (dispatch, getState) => {
 }
 export const validateToken = () => async (dispatch, getState) => {
     const token = getState().user.bungieToken;
+    const expire = new Date(token.expires_at)
     const now = new Date().getTime()
-    if (token.expires_at < now) {
+    if ( expire < now ) {
         console.log("updating token");
         const updatedToken = await updateToken(token.refresh_token)
         if (updatedToken) {

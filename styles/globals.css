@@ -242,3 +242,6 @@ nav {
     height: 200px;
     overflow: auto;
 }
+.divide-top {
+    margin-top: 32px;
+}
