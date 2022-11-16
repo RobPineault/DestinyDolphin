@@ -3,7 +3,7 @@
 ## About The Project
 Destiny Dolphin provides users with tools and guides for the video game Destiny 2. 
 
-[![Destiny Dolphin Screen Shot](https://github.com/pineaultratwit/DestinyDolphin/blob/master/public/destinydolphin-screenshot.png)](https://destinydolphin.com/items/weapons)
+[![Destiny Dolphin Screen Shot](https://github.com/pineaultratwit/DestinyDolphin/blob/master/public/destinydolphin-screenshot.png)](https://destiny-app-pineaultratwit.vercel.app/items/weapons)
 
 ### Features
 
